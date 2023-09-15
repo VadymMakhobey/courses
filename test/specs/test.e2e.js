@@ -37,7 +37,7 @@ describe('Webdriverio main page', () => {
         await expect(input).toHaveValue("hello")
     });
 
-    it("should show setValue command", async () => {
+    xit("should show setValue command", async () => {
         await browser.url('https://the-internet.herokuapp.com/login');
 
         let loginButton = await $('.radius')
@@ -56,6 +56,19 @@ describe('Webdriverio main page', () => {
         await loginButton.click()
         await browser.pause(4000)
 
+    });
+
+    it("should show getAttribute comand", async ( ) =>{
+        await browser.url('https://dou.ua/search');
+
+        let inputSearch = await $('#gsc-i-id1')
+        let attr = await inputSearch.getAttribute("aria-label")
+        console.log("Placeholder attribute is: "+ attr)
+
+        await inputSearch.setValue("Cat")
+        attr = await inputSearch.getValue()
+        await browser.pause(2000)
+        console.log("Value attribute is: " + attr)
     });
 });
 
