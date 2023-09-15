@@ -57,8 +57,6 @@ describe('Webdriverio main page', () => {
         await browser.pause(4000)
 
     });
-
-
 });
 
 
