@@ -71,7 +71,7 @@ describe('Webdriverio main page', () => {
         console.log("Value attribute is: " + attr)
     });
 
-    it("should show getLocation command", async () => {
+    xit("should show getLocation command", async () => {
         await browser.url('https://dou.ua');
 
         let inputSearch = await $('#txtGlobalSearch')
@@ -80,8 +80,16 @@ describe('Webdriverio main page', () => {
 
         let xLocation = await inputSearch.getLocation("x")
         console.log("Location by x is:" + xLocation)
-        
+
     });
+
+    it("should show getText command", async () => {
+        await browser.url('https://webdriver.io');
+
+        let subtitle = await $('.hero__subtitle')
+        console.log("Subtitle text is: " + await subtitle.getText())
+    })
+
 
 });
 
