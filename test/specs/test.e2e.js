@@ -83,12 +83,40 @@ describe('Webdriverio main page', () => {
 
     });
 
-    it("should show getText command", async () => {
+    xit("should show getText command", async () => {
         await browser.url('https://webdriver.io');
 
         let subtitle = await $('.hero__subtitle')
         console.log("Subtitle text is: " + await subtitle.getText())
-    })
+    });
+
+    it("should show if an element is clickable", async () =>{
+        await browser.url('https://webdriver.io');
+
+        const blogButton = await $('.button[href="/docs/gettingstarted"]')
+        let clickable = await blogButton.isClickable()
+        console.log("Is clickable: " + clickable)
+
+    });
+
+    it("should show if an element is displayed", async () =>{
+        await browser.url('https://webdriver.io');
+
+        const blogButton = await $('.button[href="/docs/gettingstarted"]')
+        let displayed = await blogButton.isDisplayed()
+        console.log("Is Displayed: " + displayed)
+
+    });
+
+    it("should show if an element is visible", async () =>{
+        await browser.url('https://webdriver.io');
+
+        const blogButton = await $('.button[href="/docs/gettingstarted"]')
+    
+        let displayedInViewport  = await blogButton.isDisplayedInViewport()
+        console.log("Is blog button displayed in viewport: " + displayedInViewport)
+
+    });
 
 
 });

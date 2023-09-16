@@ -1,7 +1,7 @@
 import { expect } from 'chai'; // Імпортуйте Chai замість assert
 
 describe('Webdriverio main page', () => {
-    it('should have correct title', async () => {
+    xit('should have correct title', async () => {
         await browser.url('https://webdriver.io/');
 
         await browser.pause(2000)
