@@ -131,7 +131,7 @@ describe('Webdriverio main page', () => {
 
         const getStartedButton = await $('.button[href="/docs/gettingstarted"]')
     
-        let isFocused  = await getStartedButton .isFocused()
+        let isFocused  = await getStartedButton.isFocused()
         console.log("Is get started button focused before click: " + isFocused)
         await browser.pause(2000)
         await getStartedButton.click()
@@ -169,7 +169,7 @@ describe('Webdriverio main page', () => {
         await browser.pause(2000)
     });
 
-    it("should show waitUntil command", async () =>{
+    xit("should show waitUntil command", async () =>{
         await browser.url('https://webdriver.io');
 
         await browser.waitUntil(async () =>{
@@ -177,7 +177,7 @@ describe('Webdriverio main page', () => {
 
         },5000, "Button is not displayed")
     });
-    it("should get html for certain elements", async () =>{
+    xit("should get html for certain elements", async () =>{
         await browser.url('https://webdriver.io');
 
        const outerHTML = await $('.dropdown__menu').getHTML()

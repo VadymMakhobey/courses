@@ -1,4 +1,4 @@
-import { expect } from 'chai'; // Імпортуйте Chai замість assert
+import { expect } from 'chai'; 
 
 describe('Webdriverio main page', () => {
     xit('should have correct title', async () => {
