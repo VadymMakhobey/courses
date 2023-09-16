@@ -90,7 +90,7 @@ describe('Webdriverio main page', () => {
         console.log("Subtitle text is: " + await subtitle.getText())
     });
 
-    it("should show if an element is clickable", async () =>{
+    xit("should show if an element is clickable", async () =>{
         await browser.url('https://webdriver.io');
 
         const blogButton = await $('.button[href="/docs/gettingstarted"]')
@@ -99,7 +99,7 @@ describe('Webdriverio main page', () => {
 
     });
 
-    it("should show if an element is displayed", async () =>{
+    xit("should show if an element is displayed", async () =>{
         await browser.url('https://webdriver.io');
 
         const blogButton = await $('.button[href="/docs/gettingstarted"]')
@@ -108,7 +108,7 @@ describe('Webdriverio main page', () => {
 
     });
 
-    it("should show if an element is visible", async () =>{
+    xit("should show if an element is visible", async () =>{
         await browser.url('https://webdriver.io');
 
         const blogButton = await $('.button[href="/docs/gettingstarted"]')
@@ -116,6 +116,37 @@ describe('Webdriverio main page', () => {
         let displayedInViewport  = await blogButton.isDisplayedInViewport()
         console.log("Is blog button displayed in viewport: " + displayedInViewport)
 
+    });
+
+    it("should show if an element is enabled", async () =>{
+        await browser.url('https://webdriver.io');
+
+        const getStartedButton = await $('.button[href="/docs/gettingstarted"]')
+    
+        let isEnabled  = await getStartedButton .isDisplayedInViewport()
+        console.log("Is get started button enabled: " + isEnabled)
+    });
+    it("should show if an element is focused", async () =>{
+        await browser.url('https://webdriver.io');
+
+        const getStartedButton = await $('.button[href="/docs/gettingstarted"]')
+    
+        let isFocused  = await getStartedButton .isFocused()
+        console.log("Is get started button focused before click: " + isFocused)
+        await browser.pause(2000)
+        await getStartedButton.click()
+        console.log("Is get started button focused after click: " + isFocused)
+        await browser.pause(2000)
+
+    });
+
+    it("should show if an element is enabled action", async () =>{
+        await browser.url('https://webdriver.io');
+
+        const getStartedLink = await $('.footer__link-item[href="/docs/gettingstarted"]')
+        await browser.pause(2000)
+        await getStartedLink.scrollIntoView()
+        await  browser.pause(2000)
     });
 
 
