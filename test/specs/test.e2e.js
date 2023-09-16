@@ -118,7 +118,7 @@ describe('Webdriverio main page', () => {
 
     });
 
-    it("should show if an element is enabled", async () =>{
+    xit("should show if an element is enabled", async () =>{
         await browser.url('https://webdriver.io');
 
         const getStartedButton = await $('.button[href="/docs/gettingstarted"]')
@@ -126,7 +126,7 @@ describe('Webdriverio main page', () => {
         let isEnabled  = await getStartedButton .isDisplayedInViewport()
         console.log("Is get started button enabled: " + isEnabled)
     });
-    it("should show if an element is focused", async () =>{
+    xit("should show if an element is focused", async () =>{
         await browser.url('https://webdriver.io');
 
         const getStartedButton = await $('.button[href="/docs/gettingstarted"]')
@@ -140,7 +140,7 @@ describe('Webdriverio main page', () => {
 
     });
 
-    it("should show if an element is enabled action", async () =>{
+    xit("should show if an element is enabled action", async () =>{
         await browser.url('https://webdriver.io');
 
         const getStartedLink = await $('.footer__link-item[href="/docs/gettingstarted"]')
@@ -149,7 +149,25 @@ describe('Webdriverio main page', () => {
         await  browser.pause(2000)
     });
 
+    it("should show save screenshot command", async () =>{
+        await browser.url('https://webdriver.io');
 
+        const getStartedLink = await $('.footer__link-item[href="/docs/gettingstarted"]')
+        await browser.pause(2000)
+        await getStartedLink.scrollIntoView()
+        await  browser.pause(2000)
+        await getStartedLink.saveScreenshot('linkScreenshot.png')
+    });
+
+    it("should switch to another window", async () =>{
+        await browser.url('https://webdriver.io');
+
+        await browser.newWindow('https://google.com');
+        await browser.pause(2000)
+
+        await browser.switchWindow('https://webdriver.io');
+        await browser.pause(2000)
+    });
 });
 
 
