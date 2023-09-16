@@ -149,7 +149,7 @@ describe('Webdriverio main page', () => {
         await  browser.pause(2000)
     });
 
-    it("should show save screenshot command", async () =>{
+    xit("should show save screenshot command", async () =>{
         await browser.url('https://webdriver.io');
 
         const getStartedLink = await $('.footer__link-item[href="/docs/gettingstarted"]')
@@ -159,7 +159,7 @@ describe('Webdriverio main page', () => {
         await getStartedLink.saveScreenshot('linkScreenshot.png')
     });
 
-    it("should switch to another window", async () =>{
+    xit("should switch to another window", async () =>{
         await browser.url('https://webdriver.io');
 
         await browser.newWindow('https://google.com');
@@ -168,6 +168,26 @@ describe('Webdriverio main page', () => {
         await browser.switchWindow('https://webdriver.io');
         await browser.pause(2000)
     });
+
+    it("should show waitUntil command", async () =>{
+        await browser.url('https://webdriver.io');
+
+        await browser.waitUntil(async () =>{
+            return $('.button[href="/docs/gettingstarted"]').isDisplayed();
+
+        },5000, "Button is not displayed")
+    });
+    it("should get html for certain elements", async () =>{
+        await browser.url('https://webdriver.io');
+
+       const outerHTML = await $('.dropdown__menu').getHTML()
+       console.log("outerHTML :" + outerHTML)
+
+       const innerHTML = await $('.dropdown__menu').getHTML(false)
+       console.log("innerHTML :" + innerHTML)
+       
+    });
+
 });
 
 
