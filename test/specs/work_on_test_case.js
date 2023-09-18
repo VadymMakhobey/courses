@@ -40,6 +40,23 @@ describe('Webdriverio main page', () => {
         await browser.pause(2000)
     });
 
+    xit("the button must be inactivey", async () =>{
+        await browser.url('https://github.com/');
+        await browser.pause(2000)
+
+        let link = await $('[class="HeaderMenu-link HeaderMenu-link--sign-up flex-shrink-0 d-none d-lg-inline-block no-underline border color-border-default rounded px-2 py-1"]');
+        await link.click()
+        await browser.pause(5000)
+
+        let search = await $('#email')
+        await search.setValue("Ddasdmcx@dsdf.")
+        await browser.pause(2000)
+
+        let button = await $('[class="js-continue-button signup-continue-button form-control px-3 width-full width-sm-auto mt-4 mt-sm-0"]');
+        let clickable = await button.isClickable();
+        console.log("buttom inactive: " + clickable);
+    });
+
 });
 
 
