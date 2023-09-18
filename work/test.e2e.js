@@ -99,7 +99,7 @@ describe('Webdriverio main page', () => {
 
     });
 
-    xit("should show if an element is displayed", async () =>{
+    it("should show if an element is displayed", async () =>{
         await browser.url('https://webdriver.io');
 
         const blogButton = await $('.button[href="/docs/gettingstarted"]')

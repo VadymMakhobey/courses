@@ -1,7 +1,7 @@
 import { expect } from 'chai'; 
 
 describe('Webdriverio main page', () => {
-    xit('should have correct title', async () => {
+    it('should have correct title', async () => {
         await browser.url('https://webdriver.io/');
 
         await browser.pause(2000)

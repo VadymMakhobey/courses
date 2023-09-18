@@ -4,7 +4,7 @@ import { expect } from '@wdio/globals'
 describe('Webdriverio main page', () => {
     
 
-    it("should show that we can follow this link", async () =>{
+    xit("should show that we can follow this link", async () =>{
         await browser.url('https://webdriver.io/');
 
         const link = await $('nav a[href="/docs/api"]')
