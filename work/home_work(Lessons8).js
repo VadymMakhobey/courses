@@ -19,7 +19,7 @@ describe('Webdriverio main page', () => {
         
         const h1Element = $('h1'); 
         const text = await h1Element.getText();
-        if(text == 'Introduction'){
+        if(text === 'Introduction'){
             console.log('Заголовок відповідає дійсності : ' + text); 
         }
         else{

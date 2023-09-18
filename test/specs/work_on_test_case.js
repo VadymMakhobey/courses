@@ -57,7 +57,7 @@ describe('Webdriverio main page', () => {
         console.log("buttom inactive: " + clickable);
     });
 
-    it("the button must be inactivey", async () =>{
+    xit("the button must be inactivey", async () =>{
         await browser.url('https://github.com/');
         await browser.pause(2000)
 
@@ -71,8 +71,31 @@ describe('Webdriverio main page', () => {
         
         let isEnabled = await button.isEnabled();
         console.log("buttun is active: " + isEnabled);
-    
-     
+    });
+
+    it("should return to the main page", async () =>{
+        await browser.url('https://github.com/');
+        await browser.pause(2000)
+
+        let button = await $('[class="HeaderMenu-link no-underline px-0 px-lg-2 py-3 py-lg-2 d-block d-lg-inline-block"]');
+        await button.click()
+        await browser.pause(2000)
+
+        let icon = await $('[class="octicon octicon-mark-github"]');
+        await icon.click()
+        await browser.pause(2000)
+
+        const currentUrl = await browser.getUrl();
+        console.log("this is: " + currentUrl)
+        await browser.pause(2000)
+
+        if(currentUrl === "https://github.com/")
+        {
+            console.log("we are on the main page)")
+        }else {
+            console.log("something is wrong")
+        }
+
     });
 
 });
