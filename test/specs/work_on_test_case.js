@@ -57,6 +57,24 @@ describe('Webdriverio main page', () => {
         console.log("buttom inactive: " + clickable);
     });
 
+    it("the button must be inactivey", async () =>{
+        await browser.url('https://github.com/');
+        await browser.pause(2000)
+
+        let button = await $('[class="btn-mktg home-campaign-enterprise btn-muted-mktg"]');
+        await button.scrollIntoView();
+        await browser.pause(2000)
+
+        await button.moveTo()
+        await browser.pause(2000)
+
+        
+        let isEnabled = await button.isEnabled();
+        console.log("buttun is active: " + isEnabled);
+    
+     
+    });
+
 });
 
 
