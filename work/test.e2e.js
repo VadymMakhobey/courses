@@ -66,7 +66,7 @@ describe('Webdriverio main page', () => {
         console.log("Placeholder attribute is: "+ attr)
 
         await inputSearch.setValue("Cat")
-        attr = await inputSearch.getValue()
+        attr = await inputSearch.getValue() 
         await browser.pause(2000)
         console.log("Value attribute is: " + attr)
     });
