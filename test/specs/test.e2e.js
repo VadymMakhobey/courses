@@ -25,7 +25,6 @@ describe ("Webdriverio main page",() => {
         await Pagemenu.clickOnRelocayt()
         await browser.pause(2000)
 
-
         expect (Fillingthesite.news).toHaveValue( "Новини")
         expect (Fillingthesite.blohs).toHaveValue( "Блоги")
         expect (Fillingthesite.popularontheforum).toHaveValue( "Популярне на форумі")
